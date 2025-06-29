@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Laporan Rute dan Profit</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-4">
+    <h2 class="mb-4">Laporan Rute dan Profit</h2>
+
+    <h4>Total</h4>
+    <table class="table table-bordered">
+        <tr><th>Biaya Bahan Bakar</th><td>{{ total_fuel }}</td></tr>
+        <tr><th>Biaya Operasional</th><td>{{ total_ops }}</td></tr>
+        <tr><th>Total Biaya</th><td>{{ total_biaya }}</td></tr>
+        <tr><th>Total Pendapatan</th><td>{{ total_revenue }}</td></tr>
+        <tr><th>Profit (Keuntungan)</th><td>{{ profit_total }}</td></tr>
+    </table>
+
+    <h4>Rincian per Kendaraan</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Kendaraan</th><th>Jarak (km)</th><th>Overnight</th>
+                <th>Pendapatan</th><th>Biaya</th><th>Profit</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for k in kendaraan_data %}
+            <tr>
+                <td>{{ k.kendaraan }}</td>
+                <td>{{ k.jarak }}</td>
+                <td>{{ k.overnight }}</td>
+                <td>{{ k.revenue }}</td>
+                <td>{{ k.biaya }}</td>
+                <td>{{ k.profit }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/" class="btn btn-secondary">Kembali ke Beranda</a>
+</body>
+</html>
